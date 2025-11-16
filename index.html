@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abhishek Sattu | Data Platform Specialist</title>
+  <title>Abhishek Sattu - Data Platform Specialist</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:," />
 </head>
 <body>
   <header>
     <nav>
-      <a href="#" class="logo">AS</a>
+      <a href="#" class="name">Abhishek Sattu</a>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><button id="theme-toggle">🌙</button></li>
       </ul>
     </nav>
   </header>
@@ -25,13 +25,13 @@
   <main>
     <!-- HERO -->
     <section id="hero">
-      <h1>Abhishek Sattu</h1>
-      <p class="tagline">Data Platform Specialist</p>
-      <p class="location">Buffalo, NY</p>
-      <div class="social">
-        <a href="mailto:abhi.sat779@gmail.com">Email</a>
+      <h1>Data Platform Specialist</h1>
+      <p class="subtitle">AI-Driven Automation | Cloud Data Pipelines | Analytics Engineering</p>
+      <p class="location">Buffalo, NY | 315-601-6702 | <a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a></p>
+      <div class="links">
         <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
         <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://x.com/Abhi_Sa2" target="_blank">@Abhi_Sa2</a>
       </div>
     </section>
 
@@ -40,37 +40,52 @@
       <h2>About</h2>
       <p>
         Seasoned Data Analyst with a strong foundation in data analysis, cloud computing, and artificial intelligence. 
-        Adept at uncovering actionable insights through data modeling and visualization. Proven success in AI-driven automation, 
-        cloud infrastructure, and building intelligent systems using LangChain, LLMs, and RPA.
+        Adept at uncovering actionable insights through data modeling and visualization techniques. Demonstrated success 
+        in employing advanced analytics, cloud-based solutions, and AI-driven methodologies to support strategic business 
+        decisions and drive organizational growth.
       </p>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience">
       <h2>Experience</h2>
+
       <div class="job">
-        <h3>Platform Specialist <span>@ Ingram Micro</span></h3>
-        <p class="date">Apr 2025 – Present</p>
+        <div class="job-header">
+          <h3>Platform Specialist</h3>
+          <span class="company">Ingram Micro, Buffalo, NY</span>
+          <span class="date">April 2025 – Present</span>
+        </div>
         <ul>
-          <li>Designed AI agents using LangChain & OpenAI to automate sales-ops, reducing workload by 60%</li>
-          <li>Built Power Automate + Python hybrid RPA with self-healing workflows</li>
-          <li>Automated Dynamics 365 with Selenium & browser extensions</li>
+          <li>Designed and deployed AI-driven automation agents using LangChain, OpenAI APIs, and custom MCP tools to autonomously execute repetitive sales-operations tasks, reducing manual workload across Dell & IBM workflows by 60%.</li>
+          <li>Built a Power Automate + Python hybrid orchestration framework to integrate LLM-based decision-making into existing RPA flows, enabling intelligent exception handling, automated data validation, and self-healing workflows.</li>
+          <li>Automated Dynamics 365 processes using Selenium WebDriver on Microsoft Edge, reducing manual input through rule-based RPA workflows.</li>
+          <li>Developed a browser extension for Chrome/Edge to automate in-session UI tasks in Dynamics 365, enhancing operational efficiency with intelligent form handling.</li>
         </ul>
       </div>
+
       <div class="job">
-        <h3>Graduate Assistant <span>@ SUNY Utica</span></h3>
-        <p class="date">Jan 2024 – Dec 2024</p>
+        <div class="job-header">
+          <h3>Graduate Assistant</h3>
+          <span class="company">State University of New York, Utica</span>
+          <span class="date">January 2024 – December 2024</span>
+        </div>
         <ul>
-          <li>Automated grading with web scraping & Python → 33% faster feedback</li>
-          <li>Built Power BI dashboards → 25% increase in student engagement</li>
+          <li>Assisted professor in automating homework evaluation processes using Web Scraping and Python scripting, reducing grading time by 33% and providing students with quicker feedback to improve their performance.</li>
+          <li>Designed interactive dashboards in Power BI to analyze and visualize student engagement metrics, enabling data-driven decisions that increased overall student participation by 25%.</li>
         </ul>
       </div>
+
       <div class="job">
-        <h3>Associate Data Analyst <span>@ Fosterate Inc</span></h3>
-        <p class="date">Nov 2021 – Dec 2022</p>
+        <div class="job-header">
+          <h3>Associate Data Analyst</h3>
+          <span class="company">Fosterate Inc, Hyderabad, India</span>
+          <span class="date">November 2021 – December 2022</span>
+        </div>
         <ul>
-          <li>Real-time Power BI dashboards via Athena + DirectQuery</li>
-          <li>Optimized SQL & DAX for non-technical stakeholders</li>
+          <li>Developed and maintained PowerBI dashboards, connected to Athena via ODBC driver, providing real-time insights into customer behavior, sales trends and operational performance.</li>
+          <li>Wrote and optimized Athena SQL queries, transforming raw data into actionable insights with interactive filters, slicers and custom DAX calculations that were easily understood by non-technical stakeholders.</li>
+          <li>Implemented DirectQuery mode to ensure dashboards reflected the most up-to-date data, enabling decisions without relying on schedule refreshes.</li>
         </ul>
       </div>
     </section>
@@ -78,17 +93,36 @@
     <!-- PROJECTS -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <h3>Intelligent Car Recommendation System</h3>
-          <p>AI agent with RAG, NLP, and Ollama LLM. Scraped FB Marketplace → 25% better accuracy. Deployed via Streamlit.</p>
-          <a href="#" class="link">View Project →</a>
-        </div>
-        <div class="project-card">
-          <h3>AI-Driven Dev Automation (MCP + n8n)</h3>
-          <p>Automated Git, folder setup, and deployment using custom MCP tools and AI orchestration.</p>
-          <a href="#" class="link">View Project →</a>
-        </div>
+
+      <div class="project">
+        <h3>Intelligent Car Recommendation System with AI and NLP</h3>
+        <ul>
+          <li>Developed an AI agent using RAG architecture, NLP techniques, and data scraped from Facebook Marketplace, achieving a 25% improvement in recommendation accuracy through supervised and reinforcement learning.</li>
+          <li>Deployed the solution as a Streamlit web app, leveraging the Ollama LLM for natural language understanding and real-time, personalized car recommendations.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>AI-Driven Development Automation System</h3>
+        <ul>
+          <li>Built AI-powered development automation system using Model Context Protocol (MCP) servers integrated with n8n workflow automation to streamline weekly project initialization, Git operations, and deployment processes.</li>
+          <li>Developed custom MCP tools enabling AI agents to interact with file systems, Git repositories, and external APIs, reducing project setup time by automating folder creation, repository initialization, and documentation generation.</li>
+          <li>Implemented end-to-end workflow automation connecting AI decision-making with n8n orchestration for seamless project management, version control, and deployment pipeline execution.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu">
+        <h3>Master of Science in Computer Science</h3>
+        <p>State University of New York, Utica, NY <span class="date">Jan 2023 – Dec 2024</span></p>
+        <p class="coursework">Coursework: Machine Learning, NLP, Deep Learning, Visual Analytics, Data Structures, Database Systems</p>
+      </div>
+      <div class="edu">
+        <h3>Bachelor of Electronics Engineering</h3>
+        <p>Osmania University, Hyderabad, India <span class="date">Aug 2019 – Jul 2022</span></p>
       </div>
     </section>
 
@@ -96,32 +130,35 @@
     <section id="skills">
       <h2>Technical Skills</h2>
       <div class="skills-grid">
-        <span>Python</span><span>TypeScript</span><span>SQL / PL-SQL</span><span>LangChain</span>
-        <span>Power BI (DAX)</span><span>Tableau</span><span>Snowflake</span><span>Databricks</span>
-        <span>AWS (S3, RDS)</span><span>Azure</span><span>GCP</span><span>Terraform</span>
-        <span>Selenium</span><span>RPA</span><span>Git</span><span>Streamlit</span>
+        <div><strong>Languages:</strong> Python, TypeScript, JavaScript, C#, PL/SQL</div>
+        <div><strong>Data & Analytics:</strong> Pandas, NumPy, TensorFlow, GenAI, Statistical Analysis, Data Modeling</div>
+        <div><strong>Visualization:</strong> Power BI (DAX), Tableau</div>
+        <div><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Snowflake, GraphQL</div>
+        <div><strong>Cloud & Big Data:</strong> AWS (S3, RDS, DynamoDB), Azure, GCP, Databricks, Spark</div>
+        <div><strong>DevOps & Tools:</strong> Git, Terraform, Selenium, RPA, Streamlit, n8n, LangChain</div>
       </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs">
+      <h2>Certifications</h2>
+      <ul class="certs-list">
+        <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
+        <li>Building Data Pipelines with Delta Live Tables</li>
+        <li>Managing Cloud Infrastructure with Terraform</li>
+      </ul>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2>Get in Touch</h2>
-      <p><a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a> • 315-601-6702</p>
-      <p>Buffalo, NY</p>
+      <h2>Contact</h2>
+      <p>Available for full-time opportunities in Data Engineering, AI Automation, and Cloud Analytics.</p>
+      <p><a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a> • 315-601-6702 • Buffalo, NY</p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Abhishek Sattu. Built with minimalism in mind.</p>
+    <p>© 2025 Abhishek Sattu. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Dark mode toggle
-    const toggle = document.getElementById('theme-toggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      toggle.textContent = document.body.classList.contains('dark') ? '☀' : '🌙';
-    });
-  </script>
 </body>
 </html>
