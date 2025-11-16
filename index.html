@@ -1,550 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Sattu - Cloud Engineer</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.7;
-            font-family: 'Roboto', 'Arial', sans-serif;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .grid-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .grid-lines {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        .grid-mask {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle 30px at -100px -100px, rgba(255, 255, 255, 1) 25px, transparent 30px);
-            pointer-events: none;
-            transition: none;
-        }
-
-        .grid-dot {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 50%;
-            animation: flow 10s linear infinite;
-        }
-
-        @keyframes flow {
-            0% { left: 0; top: 0; }
-            50% { left: 100%; top: 0; }
-            50.01% { left: 100%; top: 100%; }
-            100% { left: 0; top: 100%; }
-        }
-
-        .container {
-            max-width: 1200px;
-            padding: 0 40px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        header {
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a:focus {
-            color: #2c3e50;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: #2c3e50;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after, .nav-links a:focus::after {
-            width: 100%;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease 0.2s;
-        }
-
-        .hero.scrolled p {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        section {
-            padding: 8rem 0;
-            width: 100%;
-            position: relative;
-        }
-
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            color: #2c3e50;
-            text-align: center;
-        }
-
-        .card {
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            background: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card:hover {
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-        }
-
-        .card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #2c3e50;
-        }
-
-        .card p {
-            font-weight: 400;
-            margin-bottom: 0.8rem;
-            color: #666;
-        }
-
-        .card p.date {
-            font-weight: 500;
-            color: #2c3e50;
-        }
-
-        .card p.location {
-            font-style: italic;
-            color: #888;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
-            margin-top: 1.2rem;
-        }
-
-        .skill-tag {
-            background: #2c3e50;
-            color: #ffffff;
-            padding: 0.4rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border-radius: 15px;
-            transition: background 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: #34495e;
-        }
-
-        ul {
-            list-style: none;
-            margin: 1.2rem 0;
-        }
-
-        ul li {
-            font-weight: 400;
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.6rem;
-            color: #666;
-        }
-
-        ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #2c3e50;
-            font-weight: 700;
-        }
-
-        a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        a:hover, a:focus {
-            color: #34495e;
-        }
-
-        #contact .card p {
-            margin: 0.5rem 0;
-        }
-
-        footer {
-            padding: 2rem 0;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #888;
-            background: #f9f9f9;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
-            .nav-links { gap: 1.5rem; }
-            .nav-links a { font-size: 0.95rem; }
-            .card { padding: 1.5rem; }
-            h2 { font-size: 1.8rem; }
-            .card h3 { font-size: 1.5rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            .nav-links { flex-direction: column; gap: 1rem; }
-            .card { padding: 1rem; }
-            .nav-brand { font-size: 1.2rem; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abhishek Sattu | Data Platform Specialist</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="grid-container">
-        <div class="grid-lines"></div>
-        <div class="grid-mask" id="mask"></div>
-        <div class="grid-dot" id="dot"></div>
-    </div>
+  <header>
+    <nav>
+      <a href="#" class="logo">AS</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="theme-toggle">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <nav class="container">
-            <div class="nav-brand">Abhishek Sattu</div>
-            <div class="nav-links">
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#projects">Projects</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <div class="hero">
-        <div class="container hero-content">
-            <h1>Abhishek Sattu</h1>
-            <p>Seasoned Cloud/DevOps Engineer with expertise in cloud computing, infrastructure automation, and AI/ML solutions</p>
-        </div>
-    </div>
-
-    <section id="experience" class="container">
-        <h2>Experience</h2>
-       
-        <div class="card">
-            <h3>Graduate Assistant</h3>
-            <p class="date">Jan 2024 - Dec 2024</p>
-            <p class="location">State University New York, Utica, NY</p>
-            <ul>
-                <li>Organized and led weekly meetings for Virtual Computer Architecture Research (ViCAR) group with Dr. William Confer, Chair of the CS Department, to develop virtual computer architecture and documentation for the Computer Architecture course.</li>
-                <li>Assisted professor in automating homework evaluation processes using Python scripting, reducing grading time by 33% and providing students with quicker feedback to improve their performance.</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>DevOps Engineer</h3>
-            <p class="date">Nov 2022 - Dec 2023</p>
-            <p class="location">Honeywell, Hyderabad, India</p>
-            <ul>
-                <li>Built a CI/CD pipeline on GitLab that deploys a SaaS CRM tool on AWS EKS by containerizing using Docker and Kubernetes for container orchestration.</li>
-                <li>Migrated On-premises Servers to AWS auto-scale instances using bash scripting resulting in minimal downtime.</li>
-                <li>Automated infrastructure provisioning on AWS and Azure using Infrastructure as a Code (IaaC) tools CloudFormation templates and Terraform Scripts, by standardized templates across diverse deployment models eliminating misconfiguration and reducing resource provisioning times.</li>
-                <li>Setup Cost Monitoring Alerts and Optimized Cloud Expenses by Monitoring and identifying over provisioned resources.</li>
-            </ul>
-        </div>
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <h1>Abhishek Sattu</h1>
+      <p class="tagline">Data Platform Specialist</p>
+      <p class="location">Buffalo, NY</p>
+      <div class="social">
+        <a href="mailto:abhi.sat779@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      </div>
     </section>
 
-    <section id="education" class="container">
-        <h2>Education</h2>
-        <div class="card">
-            <h3>Master's in Computer Science</h3>
-            <p class="date">Jan 2023 - Dec 2024</p>
-            <p class="location">State University New York, Utica, NY</p>
-            <p>Coursework: Computer Networks, Visual Analytics, Data Structures, Machine Learning, NLP, Deep Learning, Database Systems</p>
-        </div>
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Seasoned Data Analyst with a strong foundation in data analysis, cloud computing, and artificial intelligence. 
+        Adept at uncovering actionable insights through data modeling and visualization. Proven success in AI-driven automation, 
+        cloud infrastructure, and building intelligent systems using LangChain, LLMs, and RPA.
+      </p>
     </section>
 
-    <section id="projects" class="container">
-        <h2>Projects</h2>
-        <div class="card">
-            <h3>Capstone Project: Intelligent Car Recommendation System with AI and NLP</h3>
-            <ul>
-                <li>Developed an AI agent using RAG architecture, NLP techniques, and data scraped from Facebook Marketplace, achieving a 25% improvement in recommendation accuracy through supervised and reinforcement learning.</li>
-                <li>Deployed the solution as a Streamlit web app, leveraging the Ollama LLM for natural language understanding and real-time, personalized car recommendations.</li>
-            </ul>
-            <a href="https://github.com/abhishekabhi779" target="_blank">View on GitHub</a>
-        </div>
-        <div class="card">
-            <h3>Document Q&A Bot with RAG</h3>
-            <ul>
-                <li>Built a Retrieval-Augmented Generation (RAG) system that enables natural language querying of PDF documents with accurate, context-aware responses.</li>
-                <li>Implemented PDF ingestion pipeline with automatic document chunking and semantic search using Chroma vector store and HuggingFace embeddings.</li>
-                <li>Designed a flexible architecture supporting multiple reasoning models (OpenAI API, HuggingFace, and local Ollama models) for generating answers based on retrieved context.</li>
-                <li>Created an intuitive Streamlit web interface for users to interact with the system, view chat history, and receive AI-generated responses to document queries.</li>
-                <li>Utilized the smolagents framework to implement tool-calling functionality with a customized RAG pipeline for improved response quality.</li>
-            </ul>
-            <a href="https://github.com/abhishekabhi779/R1qwenRag" target="_blank">View on GitHub</a>
-        </div>
-        <div class="card">
-            <h3>E-Commerce Inventory Tracker</h3>
-            <ul>
-                <li>Developed a Python backend application using FastAPI to efficiently manage inventory for e-commerce platforms.</li>
-                <li>Implemented comprehensive CRUD operations, advanced search capabilities, and stock management with validation.</li>
-                <li>Built analytics dashboard for tracking inventory value and low-stock items, with PDF report generation.</li>
-                <li>Used SQLAlchemy ORM with SQLite database (configurable for other databases) and ReportLab for PDF generation.</li>
-                <li>Created complete test suite with pytest to ensure API reliability and proper functionality.</li>
-            </ul>
-            <a href="https://inventory-tracker.onrender.com/docs" target="_blank">Live Demo</a> | 
-            <a href="https://github.com/abhishekabhi779/inventory-tracker" target="_blank">View on GitHub</a>
-        </div>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="job">
+        <h3>Platform Specialist <span>@ Ingram Micro</span></h3>
+        <p class="date">Apr 2025 – Present</p>
+        <ul>
+          <li>Designed AI agents using LangChain & OpenAI to automate sales-ops, reducing workload by 60%</li>
+          <li>Built Power Automate + Python hybrid RPA with self-healing workflows</li>
+          <li>Automated Dynamics 365 with Selenium & browser extensions</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Graduate Assistant <span>@ SUNY Utica</span></h3>
+        <p class="date">Jan 2024 – Dec 2024</p>
+        <ul>
+          <li>Automated grading with web scraping & Python → 33% faster feedback</li>
+          <li>Built Power BI dashboards → 25% increase in student engagement</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Associate Data Analyst <span>@ Fosterate Inc</span></h3>
+        <p class="date">Nov 2021 – Dec 2022</p>
+        <ul>
+          <li>Real-time Power BI dashboards via Athena + DirectQuery</li>
+          <li>Optimized SQL & DAX for non-technical stakeholders</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="certifications" class="container">
-        <h2>Certifications</h2>
-        <div class="card">
-            <h3>Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
-            <p class="location">Microsoft</p>
-            <a href="https://learn.microsoft.com/en-us/users/abhisheksattu-5000/credentials/63bfb1b1a998cb89" target="_blank">View Credential</a>
-            
-            <h3>Cloud Infrastructure with Terraform</h3>
-            <p class="location">Google</p>
-            
-            <h3>Build Data Pipelines with Delta Live Tables</h3>
-            <p class="date">March 2025</p>
-            <p class="location">Databricks</p>
-            
-            <h3>Databricks Fundamentals Accreditation</h3>
-            <p class="date">March 2025</p>
-            <p class="location">Databricks</p>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Intelligent Car Recommendation System</h3>
+          <p>AI agent with RAG, NLP, and Ollama LLM. Scraped FB Marketplace → 25% better accuracy. Deployed via Streamlit.</p>
+          <a href="#" class="link">View Project →</a>
         </div>
+        <div class="project-card">
+          <h3>AI-Driven Dev Automation (MCP + n8n)</h3>
+          <p>Automated Git, folder setup, and deployment using custom MCP tools and AI orchestration.</p>
+          <a href="#" class="link">View Project →</a>
+        </div>
+      </div>
     </section>
 
-    <section id="skills" class="container">
-        <h2>Technical Skills</h2>
-        <div class="card">
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">AWS</span>
-                <span class="skill-tag">Azure</span>
-                <span class="skill-tag">GCP</span>
-                <span class="skill-tag">Terraform</span>
-                <span class="skill-tag">CloudFormation</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">EKS</span>
-                <span class="skill-tag">CI/CD</span>
-                <span class="skill-tag">GitLab</span>
-                <span class="skill-tag">Bash Scripting</span>
-                <span class="skill-tag">IAM</span>
-                <span class="skill-tag">CloudWatch</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">GraphQL</span>
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Snowflake</span>
-                <span class="skill-tag">ML/AI</span>
-                <span class="skill-tag">Data Pipelines</span>
-                <span class="skill-tag">Infrastructure as Code</span>
-                <span class="skill-tag">Spark</span>
-                <span class="skill-tag">Databricks</span>
-            </div>
-        </div>
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <span>Python</span><span>TypeScript</span><span>SQL / PL-SQL</span><span>LangChain</span>
+        <span>Power BI (DAX)</span><span>Tableau</span><span>Snowflake</span><span>Databricks</span>
+        <span>AWS (S3, RDS)</span><span>Azure</span><span>GCP</span><span>Terraform</span>
+        <span>Selenium</span><span>RPA</span><span>Git</span><span>Streamlit</span>
+      </div>
     </section>
 
-    <section id="contact" class="container">
-        <h2>Contact</h2>
-        <div class="card">
-            <p>Phone: 315-601-6702</p>
-            <p>Email: <a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a></p>
-            <p>Location: New York, NY</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/abhishek-s-462954222/" target="_blank">LinkedIn Profile</a></p>
-            <p>GitHub: <a href="https://github.com/abhishekabhi779?tab=repositories" target="_blank">GitHub Profile</a></p>
-            <p>Website: <a href="https://abhishekabhi779.github.io/" target="_blank">Portfolio Website</a></p>
-        </div>
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p><a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a> • 315-601-6702</p>
+      <p>Buffalo, NY</p>
     </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Abhishek Sattu. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>© 2025 Abhishek Sattu. Built with minimalism in mind.</p>
+  </footer>
 
-    <script>
-        // Grid mask effect
-        const mask = document.getElementById('mask');
-        document.body.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            mask.style.background = `radial-gradient(circle 30px at ${x}px ${y}px, rgba(255, 255, 255, 1) 25px, transparent 30px)`;
-        });
-
-        document.body.addEventListener('mouseleave', () => {
-            mask.style.background = 'radial-gradient(circle 30px at -100px -100px, rgba(255, 255, 255, 1) 25px, transparent 30px)';
-        });
-
-        // Scroll reveal for cards and hero text
-        const sections = document.querySelectorAll('section, .hero');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    if (entry.target.classList.contains('hero')) {
-                        entry.target.classList.add('scrolled');
-                    } else {
-                        entry.target.querySelectorAll('.card').forEach(card => {
-                            card.classList.add('visible');
-                        });
-                    }
-                }
-            });
-        }, { threshold: 0.2 });
-
-        sections.forEach(section => observer.observe(section));
-
-        // Smooth scrolling
-        document.querySelectorAll('.nav-links a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Card tilt effect (subtler)
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 20; // Reduced intensity
-                const rotateY = (centerX - x) / 20;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(0)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-            });
-        });
-    </script>
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggle.textContent = document.body.classList.contains('dark') ? '☀' : '🌙';
+    });
+  </script>
 </body>
 </html>
