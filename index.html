@@ -2,163 +2,518 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abhishek Sattu - Data Platform Specialist</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek Sattu — AI Agent Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1B4F8A;
+      --navy-dark: #0f2f55;
+      --navy-light: #2a6cb8;
+      --accent: #e8f0fd;
+      --ink: #1a1a2e;
+      --muted: #5a6a7e;
+      --rule: #c8d8f0;
+      --bg: #f7f9fe;
+      --white: #ffffff;
+      --mono: 'DM Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    header {
+      background: var(--navy-dark);
+      position: relative;
+      overflow: hidden;
+      padding: 64px 48px 56px;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(42,108,184,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 30%;
+      width: 500px; height: 200px;
+      background: radial-gradient(ellipse, rgba(27,79,138,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 68px);
+      color: #ffffff;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 14px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 28px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .contact-bar a, .contact-bar span {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-bar a:hover { color: #fff; }
+
+    .contact-bar .sep {
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── MAIN LAYOUT ─────────────────────────────────── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── SUMMARY ─────────────────────────────────────── */
+    .summary {
+      background: var(--white);
+      border-left: 3px solid var(--navy);
+      padding: 24px 28px;
+      margin-bottom: 44px;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 2px 16px rgba(27,79,138,0.07);
+      animation: fadeUp 0.5s 0.4s ease both;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #2a3550;
+    }
+
+    /* ── SECTION ─────────────────────────────────────── */
+    section { margin-bottom: 44px; animation: fadeUp 0.5s ease both; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      font-weight: 500;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── ROLE CARD ───────────────────────────────────── */
+    .role-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 22px 26px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 8px rgba(27,79,138,0.06);
+      border: 1px solid rgba(27,79,138,0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .role-card:hover {
+      box-shadow: 0 4px 20px rgba(27,79,138,0.12);
+      transform: translateY(-1px);
+    }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .role-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .role-company {
+      font-size: 13px;
+      color: var(--navy);
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .role-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .role-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .role-card ul li {
+      font-size: 13.5px;
+      color: #3a4a60;
+      line-height: 1.65;
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
+
+    .role-card ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--navy-light);
+      font-size: 10px;
+      top: 7px;
+    }
+
+    /* ── PROJECTS ────────────────────────────────────── */
+    .project-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 20px 26px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(27,79,138,0.08);
+      box-shadow: 0 1px 8px rgba(27,79,138,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 4px 20px rgba(27,79,138,0.12);
+      transform: translateY(-1px);
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 14.5px;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .project-stack {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--navy-light);
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 13.5px;
+      color: #3a4a60;
+      line-height: 1.65;
+    }
+
+    /* ── SKILLS ──────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .skill-row {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 14px 20px;
+      border: 1px solid rgba(27,79,138,0.08);
+      font-size: 13.5px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .skill-label {
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+      min-width: 130px;
+      font-size: 12.5px;
+    }
+
+    .skill-values {
+      color: #3a4a60;
+      line-height: 1.6;
+    }
+
+    /* ── EDUCATION & CERTS ───────────────────────────── */
+    .edu-row {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 16px 22px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(27,79,138,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .edu-degree { font-weight: 600; font-size: 14px; }
+    .edu-school { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 2px; }
+    .edu-date { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cert-item {
+      background: var(--accent);
+      border-radius: 4px;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--navy-dark);
+      font-weight: 500;
+      border-left: 3px solid var(--navy);
+    }
+
+    /* ── ANIMATIONS ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    section:nth-child(1) { animation-delay: 0.35s; }
+    section:nth-child(2) { animation-delay: 0.45s; }
+    section:nth-child(3) { animation-delay: 0.55s; }
+    section:nth-child(4) { animation-delay: 0.65s; }
+    section:nth-child(5) { animation-delay: 0.75s; }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      header { padding: 40px 24px 36px; }
+      .role-header { flex-direction: column; }
+      .skill-row { flex-direction: column; }
+      .edu-row { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#" class="name">Abhishek Sattu</a>
+
+<header>
+  <div class="header-inner">
+    <div class="tag">Available for new opportunities</div>
+    <h1>Abhishek <em>Sattu</em></h1>
+    <p class="subtitle">AI Prompt Engineer &amp; Agent Builder &nbsp;·&nbsp; CS Graduate, AI &amp; ML &nbsp;·&nbsp; New York, NY</p>
+    <div class="contact-bar">
+      <a href="tel:3156016702">315-601-6702</a>
+      <span class="sep">|</span>
+      <a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a>
+      <span class="sep">|</span>
+      <a href="https://linkedin.com/in/abhishek-s-462954222" target="_blank">LinkedIn</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/abhishekabhi779" target="_blank">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="summary">
+    CS graduate (AI &amp; ML) who builds agents out of curiosity, not obligation. Individual contributor with hands-on experience designing deterministic, production-grade agentic systems for platform ops, experimenting with open-source LLMs in the 9B–12B parameter range, and translating loosely defined business goals into reliable automated workflows. Authored research on building agents for deterministic business solutions; deeply familiar with prompt design, multi-agent orchestration, MCP servers, and agentic reliability patterns.
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-label">Experience</div>
+
+    <div class="role-card">
+      <div class="role-header">
+        <div>
+          <div class="role-title">Platform Specialist</div>
+          <div class="role-company">Ingram Micro &nbsp;·&nbsp; Buffalo, NY</div>
+        </div>
+        <div class="role-date">Apr 2025 – Present</div>
+      </div>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>Built a guardrail-enforced AI agent for Microsoft Copilot to automate platform ops and ETL workflows, using deterministic code-based extraction over predictive inference for reliable, auditable outputs.</li>
+        <li>Designed multi-agent AI automation system (MCP + n8n) eliminating repetitive DevOps and project management tasks; architected for observability, maintainability, and safe handoff to non-engineering stakeholders.</li>
+        <li>Integrated Azure OpenAI APIs into Python-based automation workflows enabling LLM-driven decision-making for exception handling, intelligent routing, and dynamic response generation across operational pipelines.</li>
+        <li>Built Power Automate and Python hybrid RPA framework with LLM-based decision-making, enabling smart routing and self-healing workflows that reduced escalations to senior staff.</li>
+        <li>Assessed and mapped high-friction workflows across a 15-member ops team, converting repetitive processes into rule-based automations, reducing manual effort and downstream rework.</li>
+        <li>Owned product backlog tasks, writing user stories, epics, and workflow specs; documented prompt strategies and agent configurations for team reuse.</li>
       </ul>
-    </nav>
-  </header>
+    </div>
 
-  <main>
-    <!-- HERO -->
-    <section id="hero">
-      <h1>Data Platform Specialist</h1>
-      <p class="subtitle">AI-Driven Automation | Cloud Data Pipelines | Analytics Engineering</p>
-      <p class="location">Buffalo, NY | 315-601-6702 | <a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a></p>
-      <div class="links">
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-        <a href="https://x.com/Abhi_Sa2" target="_blank">@Abhi_Sa2</a>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Seasoned Data Analyst with a strong foundation in data analysis, cloud computing, and artificial intelligence. 
-        Adept at uncovering actionable insights through data modeling and visualization techniques. Demonstrated success 
-        in employing advanced analytics, cloud-based solutions, and AI-driven methodologies to support strategic business 
-        decisions and drive organizational growth.
-      </p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="job">
-        <div class="job-header">
-          <h3>Platform Specialist</h3>
-          <span class="company">Ingram Micro, Buffalo, NY</span>
-          <span class="date">April 2025 – Present</span>
+    <div class="role-card">
+      <div class="role-header">
+        <div>
+          <div class="role-title">Graduate Assistant</div>
+          <div class="role-company">SUNY Polytechnic Institute &nbsp;·&nbsp; Utica, NY</div>
         </div>
-        <ul>
-          <li>Designed and deployed AI-driven automation agents using LangChain, OpenAI APIs, and custom MCP tools to autonomously execute repetitive sales-operations tasks, reducing manual workload across Dell & IBM workflows by 60%.</li>
-          <li>Built a Power Automate + Python hybrid orchestration framework to integrate LLM-based decision-making into existing RPA flows, enabling intelligent exception handling, automated data validation, and self-healing workflows.</li>
-          <li>Automated Dynamics 365 processes using Selenium WebDriver on Microsoft Edge, reducing manual input through rule-based RPA workflows.</li>
-          <li>Developed a browser extension for Chrome/Edge to automate in-session UI tasks in Dynamics 365, enhancing operational efficiency with intelligent form handling.</li>
-        </ul>
+        <div class="role-date">Jan 2024 – Dec 2024</div>
       </div>
-
-      <div class="job">
-        <div class="job-header">
-          <h3>Graduate Assistant</h3>
-          <span class="company">State University of New York, Utica</span>
-          <span class="date">January 2024 – December 2024</span>
-        </div>
-        <ul>
-          <li>Assisted professor in automating homework evaluation processes using Web Scraping and Python scripting, reducing grading time by 33% and providing students with quicker feedback to improve their performance.</li>
-          <li>Designed interactive dashboards in Power BI to analyze and visualize student engagement metrics, enabling data-driven decisions that increased overall student participation by 25%.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-header">
-          <h3>Associate Data Analyst</h3>
-          <span class="company">Fosterate Inc, Hyderabad, India</span>
-          <span class="date">November 2021 – December 2022</span>
-        </div>
-        <ul>
-          <li>Developed and maintained PowerBI dashboards, connected to Athena via ODBC driver, providing real-time insights into customer behavior, sales trends and operational performance.</li>
-          <li>Wrote and optimized Athena SQL queries, transforming raw data into actionable insights with interactive filters, slicers and custom DAX calculations that were easily understood by non-technical stakeholders.</li>
-          <li>Implemented DirectQuery mode to ensure dashboards reflected the most up-to-date data, enabling decisions without relying on schedule refreshes.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <div class="project">
-        <h3>Intelligent Car Recommendation System with AI and NLP</h3>
-        <ul>
-          <li>Developed an AI agent using RAG architecture, NLP techniques, and data scraped from Facebook Marketplace, achieving a 25% improvement in recommendation accuracy through supervised and reinforcement learning.</li>
-          <li>Deployed the solution as a Streamlit web app, leveraging the Ollama LLM for natural language understanding and real-time, personalized car recommendations.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <h3>AI-Driven Development Automation System</h3>
-        <ul>
-          <li>Built AI-powered development automation system using Model Context Protocol (MCP) servers integrated with n8n workflow automation to streamline weekly project initialization, Git operations, and deployment processes.</li>
-          <li>Developed custom MCP tools enabling AI agents to interact with file systems, Git repositories, and external APIs, reducing project setup time by automating folder creation, repository initialization, and documentation generation.</li>
-          <li>Implemented end-to-end workflow automation connecting AI decision-making with n8n orchestration for seamless project management, version control, and deployment pipeline execution.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education">
-      <h2>Education</h2>
-      <div class="edu">
-        <h3>Master of Science in Computer Science</h3>
-        <p>State University of New York, Utica, NY <span class="date">Jan 2023 – Dec 2024</span></p>
-        <p class="coursework">Coursework: Machine Learning, NLP, Deep Learning, Visual Analytics, Data Structures, Database Systems</p>
-      </div>
-      <div class="edu">
-        <h3>Bachelor of Electronics Engineering</h3>
-        <p>Osmania University, Hyderabad, India <span class="date">Aug 2019 – Jul 2022</span></p>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div><strong>Languages:</strong> Python, TypeScript, JavaScript, C#, PL/SQL</div>
-        <div><strong>Data & Analytics:</strong> Pandas, NumPy, TensorFlow, GenAI, Statistical Analysis, Data Modeling</div>
-        <div><strong>Visualization:</strong> Power BI (DAX), Tableau</div>
-        <div><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Snowflake, GraphQL</div>
-        <div><strong>Cloud & Big Data:</strong> AWS (S3, RDS, DynamoDB), Azure, GCP, Databricks, Spark</div>
-        <div><strong>DevOps & Tools:</strong> Git, Terraform, Selenium, RPA, Streamlit, n8n, LangChain</div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certs">
-      <h2>Certifications</h2>
-      <ul class="certs-list">
-        <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
-        <li>Building Data Pipelines with Delta Live Tables</li>
-        <li>Managing Cloud Infrastructure with Terraform</li>
+      <ul>
+        <li>Redesigned academic evaluation workflows using Python scripting and Selenium automation, reducing grading cycle time by 33%.</li>
+        <li>Built interactive Power BI dashboards visualizing student engagement metrics, enabling data-driven instructional adjustments that increased participation by 25%.</li>
       </ul>
-    </section>
+    </div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Available for full-time opportunities in Data Engineering, AI Automation, and Cloud Analytics.</p>
-      <p><a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a> • 315-601-6702 • Buffalo, NY</p>
-    </section>
-  </main>
+    <div class="role-card">
+      <div class="role-header">
+        <div>
+          <div class="role-title">Associate Data Analyst</div>
+          <div class="role-company">Fosterate Inc &nbsp;·&nbsp; Hyderabad, India</div>
+        </div>
+        <div class="role-date">Nov 2021 – Dec 2022</div>
+      </div>
+      <ul>
+        <li>Developed Power BI dashboards connected to Amazon Athena via ODBC with DirectQuery, delivering real-time insights on customer behavior and operational performance.</li>
+        <li>Authored optimized SQL queries with custom DAX calculations and interactive filters, transforming raw data into decision-ready reports for non-technical business users.</li>
+      </ul>
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2025 Abhishek Sattu. All rights reserved.</p>
-  </footer>
+  <!-- PROJECTS -->
+  <section>
+    <div class="section-label">Projects</div>
+
+    <div class="project-card">
+      <div class="project-title">AI-Driven Workflow Automation System</div>
+      <div class="project-stack">MCP Servers · n8n Orchestration · Multi-Agent · Open-Source LLMs (9B–12B)</div>
+      <p>Built a multi-agent AI automation system using MCP servers integrated with n8n to eliminate repetitive DevOps tasks. Extensively experimented with open-source LLMs in the 9B–12B parameter range to optimize agent reliability and cost. Authored research on deterministic agentic architectures for business use cases. Designed for observability and safe handoff to non-engineering teams.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Intelligent Car Recommendation System</div>
+      <div class="project-stack">RAG · Reinforcement Learning · Vector Embeddings · Python</div>
+      <p>Designed a full-cycle AI recommendation platform using RAG architecture and reinforcement learning, achieving 25% improvement in recommendation accuracy. Applied vector search, embeddings, and content similarity detection. Managed complete lifecycle from data pipeline design and prompt engineering to production deployment.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="skill-label">AI &amp; Agents</span>
+        <span class="skill-values">Prompt Engineering, Agent Design, Multi-Agent Orchestration, MCP Servers, OpenAI / Azure OpenAI, Anthropic, LangChain, Hugging Face, Open-Source LLMs (9B–12B), RAG, Vector Embeddings, TensorFlow</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Automation &amp; Backend</span>
+        <span class="skill-values">Python, JavaScript, TypeScript, Power Automate, n8n, UiPath, Selenium, RESTful APIs, ETL Pipelines, SQL, PostgreSQL</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Platforms &amp; Tools</span>
+        <span class="skill-values">Azure, AWS, GCP, Power BI, Dynamics 365, GitHub Actions, Jira, Agile / Scrum, Technical Documentation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-label">Education</div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-degree">M.S. Computer Science — AI &amp; ML</div>
+        <div class="edu-school">SUNY Polytechnic Institute, Utica, NY &nbsp;·&nbsp; Coursework: Machine Learning, NLP, Visual Analytics</div>
+      </div>
+      <div class="edu-date">2023 – 2024</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-degree">B.S. Electronics Engineering</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <div class="section-label">Certifications</div>
+    <div class="cert-list">
+      <div class="cert-item">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+      <div class="cert-item">UiPath Specialized AI Professional Certificate</div>
+      <div class="cert-item">Building Data Pipelines with Delta Live Tables — Databricks</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  abhishekabhi779.github.io &nbsp;·&nbsp; Built with care
+</footer>
+
 </body>
 </html>
