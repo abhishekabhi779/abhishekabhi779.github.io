@@ -128,8 +128,7 @@ Shared nav across all pages:
 - Authored optimized SQL queries with custom DAX calculations and interactive filters
 
 ### Projects
-- **AI-Driven Workflow Automation System** (MCP + n8n): Multi-agent system using MCP servers + n8n; researched open-source LLMs 9B–12B for agentic reliability; authored research on deterministic agent architectures
-- **Intelligent Car Recommendation System** (Capstone): RAG + reinforcement learning, 25% accuracy improvement, full lifecycle from data pipeline to deployment
+- **LM Studio MCP Server**: Built MCP tools to make local 9B–12B models reliable — model handles intent, MCP enforces structure; DOCX generation, resume tailoring, structured output; Node.js + @modelcontextprotocol/sdk + docxtemplater; fallback parsing + input validation for deterministic output
 - **SBA Lead Sourcing Machine**: 1.87M SBA PPP records → searchable lead database; PostgreSQL + pgvector (HNSW index), Flask API, semantic search via sentence-transformers, contact enrichment via Google Places + BeautifulSoup4 scraper with 4 fallback strategies, CSV export for outreach
 
 ### Skills
