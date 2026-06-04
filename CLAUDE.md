@@ -130,6 +130,7 @@ Shared nav across all pages:
 ### Projects
 - **AI-Driven Workflow Automation System** (MCP + n8n): Multi-agent system using MCP servers + n8n; researched open-source LLMs 9B–12B for agentic reliability; authored research on deterministic agent architectures
 - **Intelligent Car Recommendation System** (Capstone): RAG + reinforcement learning, 25% accuracy improvement, full lifecycle from data pipeline to deployment
+- **SBA Lead Sourcing Machine**: 1.87M SBA PPP records → searchable lead database; PostgreSQL + pgvector (HNSW index), Flask API, semantic search via sentence-transformers, contact enrichment via Google Places + BeautifulSoup4 scraper with 4 fallback strategies, CSV export for outreach
 
 ### Skills
 - AI & Agents: Prompt Engineering, Agent Design, Multi-Agent Orchestration, MCP Servers, OpenAI/Azure OpenAI, Anthropic, LangChain, Hugging Face, Open-Source LLMs (9B–12B), RAG, Vector Embeddings, TensorFlow
