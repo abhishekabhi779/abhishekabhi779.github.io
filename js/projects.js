@@ -37,8 +37,13 @@
                 return res.json();
             })
             .then((repos) => {
-                // Filter out the portfolio repo itself and forks
-                const filteredRepos = repos.filter(repo => !repo.fork && repo.name !== 'abhishekabhi779.github.io');
+                // Filter out the portfolio repo itself, forks, and the two featured projects
+                const filteredRepos = repos.filter(repo => 
+                    !repo.fork && 
+                    repo.name !== 'abhishekabhi779.github.io' &&
+                    repo.name !== 'SBA-Lead-Sourcing-Machine' &&
+                    repo.name !== 'LM-Studio-MCP-Server'
+                );
                 projectsContainer.innerHTML = filteredRepos.map(buildProjectCard).join('');
             })
             .catch((err) => {

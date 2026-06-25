@@ -299,3 +299,80 @@ footer {
   .nav-links { display: none; }
   .exp-header { flex-direction: column; gap: 4px; }
 }
+
+/* ── CASE STUDY CARDS ────────────────────────────── */
+.case-study-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+
+.case-study-card h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.case-study-card h4 {
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.case-study-card p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.case-study-card ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.case-study-card li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+}
+
+.case-study-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+}
+
+.case-study-card .project-links {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.case-study-card .btn-project {
+  background-color: var(--primary);
+  color: var(--text-bright);
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.case-study-card .btn-project:hover {
+  background-color: #4299e1; /* A slightly lighter blue */
+}
+
+.case-study-card code {
+  background-color: var(--surface-hover);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--text-bright);
+}

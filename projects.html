@@ -12,7 +12,8 @@
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">AS.</a>
       <div class="nav-links">
-        <a href="index.html#projects">Projects</a>
+        <a href="index.html#projects">Home</a>
+        <a href="projects.html">Projects</a>
         <a href="index.html#experience">Experience</a>
         <a href="index.html#skills">Skills</a>
         <a href="mailto:abhi.sat779@gmail.com">Contact</a>
@@ -24,16 +25,68 @@
     <div class="container">
       <h1>The <span class="gradient-text">Project</span> Archive.</h1>
       <p class="intro">
-        A collection of my work in data systems, AI orchestration, and automated workflows. 
-        Fetched live from GitHub.
+        A deep dive into my most impactful projects, showcasing the **What, Why, and How** behind each solution.
       </p>
     </div>
   </header>
 
   <main class="container">
-    <div class="bento-grid" id="projects-container">
-      <!-- Projects will be dynamically loaded here -->
-    </div>
+    <section id="case-studies">
+      <h2>Featured Case Studies</h2>
+
+      <!-- SBA Lead Sourcing Engine Case Study -->
+      <div class="case-study-card">
+        <span class="card-tag">DATA ENGINEERING + SEMANTIC SEARCH</span>
+        <h3>SBA Lead Sourcing Engine</h3>
+        
+        <h4>What We Built:</h4>
+        <p>An end-to-end data pipeline and search engine that transforms 1.87 million raw, public Paycheck Protection Program (PPP) loan records from the Small Business Administration (SBA) into a highly searchable, enriched lead generation database.</p>
+        
+        <h4>Why We Built It:</h4>
+        <p>Raw government datasets are massive but lack actionable contact information and are difficult to query semantically. Sales and marketing teams need targeted, enriched leads (emails, owner names) based on specific industry niches, not just raw CSV dumps. The goal was to automate the transition from "raw public data" to "actionable outreach list."</p>
+        
+        <h4>How It Works:</h4>
+        <ul>
+          <li><strong>Data Ingestion & Storage:</strong> Loaded 1.87M records into a PostgreSQL database.</li>
+          <li><strong>Semantic Search:</strong> Implemented <code>pgvector</code> and Sentence Transformers to create an HNSW (Hierarchical Navigable Small World) vector index, allowing users to search by semantic meaning rather than exact keyword matches.</li>
+          <li><strong>Hierarchical Filtering:</strong> Built filtering logic based on NAICS sector and industry codes.</li>
+          <li><strong>Multi-Fallback Enrichment Pipeline:</strong> Engineered a robust contact enrichment system. It first queries the Google Places API, then falls back to custom web scraping (using BeautifulSoup4) with four distinct fallback strategies to maximize the extraction rate of emails and owner names.</li>
+          <li><strong>Delivery:</strong> The Flask backend streams the enriched, highly targeted results directly to the user as a ready-to-use CSV.</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/abhishekabhi779/SBA-Lead-Sourcing-Machine" target="_blank" rel="noopener" class="btn btn-project">View Code</a>
+        </div>
+      </div>
+
+      <!-- Local LLM MCP Server Case Study -->
+      <div class="case-study-card">
+        <span class="card-tag">GEN AI + MCP</span>
+        <h3>Local LLM MCP Server</h3>
+        
+        <h4>What We Built:</h4>
+        <p>A custom Model Context Protocol (MCP) server designed specifically to constrain and enhance the capabilities of local, smaller-parameter Large Language Models (9B–12B range) running via LM Studio.</p>
+        
+        <h4>Why We Built It:</h4>
+        <p>While massive cloud models (like GPT-4) are highly capable, relying on them introduces latency, cost, and privacy concerns. Local 9B-12B models are fast and private but often struggle with complex reasoning or formatting tasks, leading to hallucinations or broken outputs. We needed a way to make these smaller models reliable enough for production workflows, specifically for document generation and resume tailoring.</p>
+        
+        <h4>How It Works:</h4>
+        <ul>
+          <li><strong>Constrained Execution:</strong> Instead of letting the model "freestyle" its output, the MCP server provides narrow, highly validated tools. The model is only responsible for determining <em>intent</em>, while the MCP server handles the <em>execution</em> and structure.</li>
+          <li><strong>Deterministic Output:</strong> Integrated tools like <code>docxtemplater</code> to ensure that when the model decides to generate a document, the output strictly adheres to a predefined template, eliminating formatting errors.</li>
+          <li><strong>Guardrails & Fallbacks:</strong> Implemented strict input validation and fallback parsing mechanisms within the Node.js server. If the local model outputs malformed JSON or incorrect parameters, the MCP server catches it, preventing the workflow from breaking.</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/abhishekabhi779/LM-Studio-MCP-Server" target="_blank" rel="noopener" class="btn btn-project">View Code</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="all-projects">
+      <h2>Other Projects (from GitHub)</h2>
+      <div class="bento-grid" id="projects-container">
+        <!-- Other projects will be dynamically loaded here -->
+      </div>
+    </section>
   </main>
 
   <footer>
