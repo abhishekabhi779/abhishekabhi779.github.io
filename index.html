@@ -1,180 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Sattu - Data & AI Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek Sattu | Data Engineer & AI Specialist</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="site-nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">AS</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="social-links">
-                <a href="https://github.com/abhishekabhi779" target="_blank" rel="noopener" aria-label="GitHub"><img src="https://img.icons8.com/ios-filled/24/000000/github.png" alt="GitHub"></a>
-                <a href="https://linkedin.com/in/abhishek-s-462954222" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="https://img.icons8.com/ios-filled/24/000000/linkedin.png" alt="LinkedIn"></a>
-            </div>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">AS.</a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="mailto:abhi.sat779@gmail.com">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-tag">Available for high-impact roles</div>
+      <h1>Building <span class="gradient-text">Deterministic AI</span> & Scalable Data Systems.</h1>
+      <p class="intro">
+        I bridge the gap between complex data engineering and production-grade Generative AI. 
+        Specializing in high-performance pipelines, multi-agent orchestration, and FinTech-ready automation.
+      </p>
+      
+      <div class="metrics-bar">
+        <div class="metric-item">
+          <span class="value">1.87M+</span>
+          <span class="label">Records Processed</span>
         </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <p class="tagline">Innovating at the Intersection of Data, AI, and Finance</p>
-            <h1>Hi, I'm Abhishek Sattu</h1>
-            <p class="intro">A passionate and results-driven professional with expertise in <strong>Data Engineering, Generative AI, Software Development, and Data Analytics</strong>. I thrive on transforming complex data into actionable insights and building intelligent systems that drive business value, particularly in the <strong>FinTech and Capital Markets</strong> sectors.</p>
-            <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
+        <div class="metric-item">
+          <span class="value">33%</span>
+          <span class="label">Efficiency Gain</span>
         </div>
-    </header>
+        <div class="metric-item">
+          <span class="value">9B-12B</span>
+          <span class="label">LLM Optimization</span>
+        </div>
+        <div class="metric-item">
+          <span class="value">FinTech</span>
+          <span class="label">Focus Area</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <main>
-        <section id="about" class="section">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p>I am a CS graduate specializing in AI & ML, with a strong foundation in designing and implementing robust data pipelines, developing AI-driven solutions, and crafting efficient software. My experience spans from building guardrail-enforced AI agents for platform operations to developing interactive Power BI dashboards for data visualization. I am an individual contributor who enjoys tackling challenging problems and translating abstract business requirements into tangible, automated workflows.</p>
-                <p>My career journey has equipped me with a unique blend of technical skills and a keen understanding of business processes, making me adept at bridging the gap between data science and practical application. I am particularly drawn to the dynamic environments of FinTech and Capital Markets, where data-driven innovation is paramount.</p>
+  <main class="container">
+    
+    <section id="projects">
+      <h2>Featured Systems</h2>
+      <div class="bento-grid">
+        <!-- SBA PROJECT (Large Card) -->
+        <div class="bento-card col-8">
+          <span class="card-tag">DATA ENGINEERING + SEMANTIC SEARCH</span>
+          <h3>SBA Lead Sourcing Engine</h3>
+          <p>
+            Architected an end-to-end pipeline transforming 1.87M public SBA records into a searchable, enrichable lead database. 
+            Implemented <strong>HNSW vector indexing</strong> for semantic search and a multi-fallback enrichment strategy using Google Places and custom scrapers.
+          </p>
+          <div class="card-footer">
+            <div class="tech-stack">
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">pgvector</span>
+              <span class="tech-pill">Flask</span>
+              <span class="tech-pill">Transformers</span>
             </div>
-        </section>
+            <a href="https://github.com/abhishekabhi779" class="mono">View Case Study →</a>
+          </div>
+        </div>
 
-        <section id="skills" class="section">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>AI & Machine Learning</h3>
-                    <ul>
-                        <li>Prompt Engineering & Agent Design</li>
-                        <li>Multi-Agent Orchestration, MCP Servers</li>
-                        <li>OpenAI / Azure OpenAI, Anthropic, LangChain</li>
-                        <li>Hugging Face, Open-Source LLMs (9B–12B)</li>
-                        <li>RAG, Vector Embeddings, TensorFlow</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Data Engineering & Analytics</h3>
-                    <ul>
-                        <li>Python, SQL, PostgreSQL</li>
-                        <li>ETL Pipelines, Data Warehousing</li>
-                        <li>Power BI, Data Visualization</li>
-                        <li>Amazon Athena, ODBC, DirectQuery</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Software Development & Automation</h3>
-                    <ul>
-                        <li>Python, JavaScript, TypeScript</li>
-                        <li>Flask, RESTful APIs</li>
-                        <li>Power Automate, n8n, UiPath, Selenium</li>
-                        <li>GitHub Actions, Agile / Scrum</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud & Tools</h3>
-                    <ul>
-                        <li>Azure, AWS, GCP</li>
-                        <li>Dynamics 365, Jira</li>
-                        <li>Technical Documentation</li>
-                    </ul>
-                </div>
+        <!-- LM STUDIO (Medium Card) -->
+        <div class="bento-card col-4">
+          <span class="card-tag">GEN AI + MCP</span>
+          <h3>Local LLM MCP Server</h3>
+          <p>
+            Built a Model Context Protocol (MCP) server to enable deterministic execution for local 9B–12B models. 
+            Engineered narrow, validated tools with strict guardrails to enforce structural reliability in automated workflows.
+          </p>
+          <div class="card-footer">
+            <div class="tech-stack">
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">MCP SDK</span>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="projects" class="section">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-grid">
-                <article class="project-card">
-                    <h3>SBA Lead Sourcing Machine</h3>
-                    <p class="project-description">Transformed 1.87M small business records from the SBA's public PPP loan dataset into a searchable, enrichable lead database. Developed hierarchical NAICS sector/industry filtering, semantic search via HNSW vector indexing, and a contact enrichment pipeline. This system chains Google Places against website scraping with four fallback strategies to extract emails and owner names, streaming enriched results as CSV for outreach.</p>
-                    <p class="project-tech"><strong>Tech Stack:</strong> PostgreSQL + pgvector, Flask, Sentence Transformers, Google Places API, BeautifulSoup4</p>
-                    <a href="#" class="btn btn-project">View Project Details</a>
-                </article>
-                <article class="project-card">
-                    <h3>LM Studio MCP Server</h3>
-                    <p class="project-description">Built Model Context Protocol (MCP) tools to make local 9B–12B LLMs reliable and useful. The core idea focuses on constrained execution: providing narrow, validated tools with guardrails so the model handles intent while the MCP enforces structure. Includes tools for DOCX generation, resume tailoring, and structured content output, ensuring deterministic file output and workflow reliability despite model imperfections.</p>
-                    <p class="project-tech"><strong>Tech Stack:</strong> Node.js, @modelcontextprotocol/sdk, LM Studio, Local LLMs (9B–12B), docxtemplater</p>
-                    <a href="#" class="btn btn-project">View Project Details</a>
-                </article>
-            </div>
-            <div class="text-center">
-                <a href="projects.html" class="btn btn-secondary">View All Projects</a>
-            </div>
-        </section>
+    <section id="experience">
+      <h2>Professional Impact</h2>
+      <div class="experience-list">
+        
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3>Platform Specialist</h3>
+            <span class="exp-company">Ingram Micro</span>
+            <span class="exp-date">Apr 2025 – Present</span>
+          </div>
+          <ul>
+            <li>Architected deterministic AI agents for Microsoft Copilot, replacing predictive inference with code-based extraction to ensure 100% auditable ETL outputs.</li>
+            <li>Engineered a hybrid RPA framework (Python + Power Automate) with LLM-based decision-making, reducing operational escalations by automating exception handling.</li>
+            <li>Optimized 15-member team workflows by converting high-friction manual processes into rule-based automations, significantly reducing downstream rework.</li>
+          </ul>
+        </div>
 
-        <section id="experience" class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-item">
-                <h3>Platform Specialist <span class="company">Ingram Micro</span></h3>
-                <p class="duration">Apr 2025 – Present | Buffalo, NY</p>
-                <ul>
-                    <li>Built a guardrail-enforced AI agent for Microsoft Copilot to automate platform ops and ETL workflows, using deterministic code-based extraction over predictive inference for reliable, auditable outputs.</li>
-                    <li>Integrated Azure OpenAI APIs into Python-based automation workflows enabling LLM-driven decision-making for exception handling, intelligent routing, and dynamic response generation across operational pipelines.</li>
-                    <li>Built Power Automate and Python hybrid RPA framework with LLM-based decision-making, enabling smart routing and self-healing workflows that reduced escalations to senior staff.</li>
-                    <li>Assessed and mapped high-friction workflows across a 15-member ops team, converting repetitive processes into rule-based automations, reducing manual effort and downstream rework.</li>
-                    <li>Owned product backlog tasks, writing user stories, epics, and workflow specs; documented prompt strategies and agent configurations for team reuse.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Graduate Assistant <span class="company">SUNY Polytechnic Institute</span></h3>
-                <p class="duration">Jan 2024 – Dec 2024 | Utica, NY</p>
-                <ul>
-                    <li>Redesigned academic evaluation workflows using Python scripting and Selenium automation, reducing grading cycle time by 33%.</li>
-                    <li>Built interactive Power BI dashboards visualizing student engagement metrics, enabling data-driven instructional adjustments that increased participation by 25%.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Associate Data Analyst <span class="company">Fosterate Inc</span></h3>
-                <p class="duration">Nov 2021 – Dec 2022 | Hyderabad, India</p>
-                <ul>
-                    <li>Developed Power BI dashboards connected to Amazon Athena via ODBC with DirectQuery, delivering real-time insights on customer behavior and operational performance.</li>
-                    <li>Authored optimized SQL queries with custom DAX calculations and interactive filters, transforming raw data into decision-ready reports for non-technical business users.</li>
-                </ul>
-            </div>
-        </section>
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3>Graduate Assistant</h3>
+            <span class="exp-company">SUNY Polytechnic Institute</span>
+            <span class="exp-date">Jan 2024 – Dec 2024</span>
+          </div>
+          <ul>
+            <li>Redesigned academic evaluation workflows using Selenium and Python, delivering a <strong>33% reduction in grading cycle time</strong>.</li>
+            <li>Developed interactive Power BI dashboards for student engagement metrics, driving a 25% increase in classroom participation through data-driven adjustments.</li>
+          </ul>
+        </div>
 
-        <section id="education" class="section">
-            <h2 class="section-title">Education & Certifications</h2>
-            <div class="education-item">
-                <h3>M.S. Computer Science — AI & ML</h3>
-                <p class="institution">SUNY Polytechnic Institute, Utica, NY</p>
-                <p class="details">Coursework: Machine Learning, NLP, Visual Analytics</p>
-                <p class="duration">2023 – 2024</p>
-            </div>
-            <div class="education-item">
-                <h3>B.S. Electronics Engineering</h3>
-                <p class="institution">[Your University/Institution]</p>
-                <p class="duration">[Your Graduation Year]</p>
-            </div>
-            <div class="certifications">
-                <h3>Certifications</h3>
-                <ul>
-                    <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
-                    <li>UiPath Specialized AI Professional Certificate</li>
-                    <li>Building Data Pipelines with Delta Live Tables — Databricks</li>
-                </ul>
-            </div>
-        </section>
+        <div class="exp-item">
+          <div class="exp-header">
+            <h3>Associate Data Analyst</h3>
+            <span class="exp-company">Fosterate Inc</span>
+            <span class="exp-date">Nov 2021 – Dec 2022</span>
+          </div>
+          <ul>
+            <li>Built real-time analytics dashboards using Amazon Athena and Power BI (DirectQuery), providing immediate visibility into customer behavior for FinTech stakeholders.</li>
+            <li>Optimized complex SQL/DAX queries to transform multi-terabyte raw data into decision-ready business intelligence reports.</li>
+          </ul>
+        </div>
 
-        <section id="contact" class="section">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="contact-intro">I'm actively seeking new opportunities in Data Engineering, Generative AI, Software Engineering, and Data Analytics, especially within FinTech or Capital Markets. Feel free to reach out!</p>
-            <div class="contact-details">
-                <p><strong>Email:</strong> <a href="mailto:abhi.sat779@gmail.com">abhi.sat779@gmail.com</a></p>
-                <p><strong>Phone:</strong> 315-601-6702</p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/abhishek-s-462954222" target="_blank" rel="noopener">linkedin.com/in/abhishek-s-462954222</a></p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/abhishekabhi779" target="_blank" rel="noopener">github.com/abhishekabhi779</a></p>
-            </div>
-        </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Abhishek Sattu. All rights reserved.</p>
-    </footer>
+    <section id="skills" style="margin-top: 80px;">
+      <h2>Technical Arsenal</h2>
+      <div class="bento-grid">
+        <div class="bento-card col-4">
+          <h3>Data Engineering</h3>
+          <p class="mono">Python, SQL, PostgreSQL, ETL Pipelines, Amazon Athena, Data Warehousing, Power BI.</p>
+        </div>
+        <div class="bento-card col-4">
+          <h3>Generative AI</h3>
+          <p class="mono">Prompt Engineering, Multi-Agent Orchestration, MCP, RAG, Vector Embeddings, Local LLMs.</p>
+        </div>
+        <div class="bento-card col-4">
+          <h3>Cloud & Ops</h3>
+          <p class="mono">Azure, AWS, GCP, GitHub Actions, Docker, Selenium, Power Automate, Agile/Scrum.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <h2>Let's build something deterministic.</h2>
+      <p class="mono">abhi.sat779@gmail.com | 315-601-6702</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/abhishek-s-462954222">LinkedIn</a>
+        <a href="https://github.com/abhishekabhi779">GitHub</a>
+        <a href="mailto:abhi.sat779@gmail.com">Email</a>
+      </div>
+      <p style="margin-top: 48px; font-size: 0.75rem; color: var(--text-dim);">
+        &copy; 2026 Abhishek Sattu. Optimized for FinTech & AI Engineering.
+      </p>
+    </div>
+  </footer>
+
 </body>
 </html>

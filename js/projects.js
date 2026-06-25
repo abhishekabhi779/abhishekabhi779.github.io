@@ -7,19 +7,20 @@
             .replace(/\b\w/g, (c) => c.toUpperCase());
 
     const buildProjectCard = (repo) => {
-        const topics = (repo.topics || []).map(
-            (t) => `<span class="project-topic">${t}</span>`
+        const topics = (repo.topics || []).slice(0, 3).map(
+            (t) => `<span class="tech-pill">${t}</span>`
         ).join('');
 
         return `
-            <article class="project-card">
+            <article class="bento-card col-4">
+                <span class="card-tag">${repo.language || 'Technical Project'}</span>
                 <h3>${formatName(repo.name)}</h3>
-                <p class="project-description">${repo.description || 'No description provided.'}</p>
-                ${topics ? `<div class="project-topics">${topics}</div>` : ''}
-                <p class="project-tech"><strong>Language:</strong> ${repo.language || 'N/A'}</p>
-                <div class="project-links">
-                    <a href="${repo.html_url}" target="_blank" rel="noopener" class="btn btn-project">View Code</a>
-                    ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener" class="btn btn-project">Live Demo</a>` : ''}
+                <p>${repo.description || 'Architecting scalable solutions and pushing the boundaries of deterministic AI.'}</p>
+                <div class="card-footer">
+                    <div class="tech-stack">
+                        ${topics}
+                    </div>
+                    <a href="${repo.html_url}" target="_blank" rel="noopener" class="mono">Code →</a>
                 </div>
             </article>
         `;
@@ -31,17 +32,17 @@
 
         fetch(API_URL)
             .then((res) => {
-                if (res.status === 403) throw new Error('GitHub API rate limit reached. Try again in a minute.');
+                if (res.status === 403) throw new Error('GitHub API rate limit reached.');
                 if (!res.ok) throw new Error('Failed to load repositories.');
                 return res.json();
             })
             .then((repos) => {
+                // Filter out the portfolio repo itself and forks
                 const filteredRepos = repos.filter(repo => !repo.fork && repo.name !== 'abhishekabhi779.github.io');
                 projectsContainer.innerHTML = filteredRepos.map(buildProjectCard).join('');
             })
             .catch((err) => {
-                projectsContainer.innerHTML = `<p style="color: red;">Error loading projects: ${err.message}</p>`;
-                console.error('Error loading projects:', err);
+                projectsContainer.innerHTML = `<p class="col-12" style="color: var(--primary); text-align: center;">${err.message}</p>`;
             });
     };
 
